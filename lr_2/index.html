@@ -270,43 +270,48 @@
 <p>Реализована аутентификация</p>
 </li>
 </ul>
-<p>```html</p>
-<script>
-            async function signup(event) {
-                event.preventDefault()
+<p>```html &lt;!DOCTYPE html&gt;
+<html lang="ru">
+    <body>
+        <main>
+            <script>
+                        async function signup(event) {
+                            event.preventDefault()</p>
+<div class="highlight"><pre><span></span><code>                        const inputs = Array.from(event.target.querySelectorAll(&#39;input&#39;))
 
-                const inputs = Array.from(event.target.querySelectorAll('input'))
+                        const signupData = {}
 
-                const signupData = {}
+                        for (const input of inputs) {
+                            signupData[input.name] = input.value
+                        }
 
-                for (const input of inputs) {
-                    signupData[input.name] = input.value
-                }
+                        console.log(&#39;sign up data&#39;, signupData)
 
-                console.log('sign up data', signupData)
+                        const response = await fetch(&#39;http://localhost:3000/signup&#39;, {
+                            method: &quot;POST&quot;,
+                            body: JSON.stringify(signupData),
+                            headers: {
+                                &#39;Content-Type&#39;: &#39;application/json&#39;
+                            }
+                        })
 
-                const response = await fetch('http://localhost:3000/signup', {
-                    method: "POST",
-                    body: JSON.stringify(signupData),
-                    headers: {
-                        'Content-Type': 'application/json'
+                        const responseJson = await response.json()
+
+                        const { accessToken, user } = responseJson
+
+                        console.log(&#39;response&#39;, responseJson)
+
+                        localStorage.accessToken = accessToken
+                        localStorage.user = JSON.stringify(user)
+
+                        window.location.href = &quot;http://localhost:8000/html/entrance.html&quot;
                     }
-                })
-
-                const responseJson = await response.json()
-
-                const { accessToken, user } = responseJson
-
-                console.log('response', responseJson)
-
-                localStorage.accessToken = accessToken
-                localStorage.user = JSON.stringify(user)
-
-                window.location.href = "http://localhost:8000/html/entrance.html"
-            }
-        </script>
-<div class="highlight"><pre><span></span><code>    ```
+                &lt;/script&gt;
+        &lt;/main&gt;
+    &lt;/body&gt;
 </code></pre></div>
+<p></html>
+```</p>
 <ul>
 <li>
 <p><code>entrance.html</code></p>
