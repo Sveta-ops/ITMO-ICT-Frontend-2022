@@ -270,6 +270,7 @@
 <p>Реализована аутентификация</p>
 </li>
 </ul>
+<p><img alt="Регистрация" src="../reg.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">            </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">signup</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">                </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span><span class="w"></span>
@@ -313,6 +314,7 @@
 <p>Реализована авторизация, проверка наличия зарегистрированного пользователя</p>
 </li>
 </ul>
+<p><img alt="Вход" src="../enter.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="kd">function</span><span class="w"> </span><span class="nx">checkAuth</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -369,6 +371,9 @@
 <p>Реализованы: фильтрация мероприятий по району и виду активности, функция проверки авторизированный пользователь или нет, от этого меняется контент (наличие кнопки выход и тд), функция записи на мероприятие, выход из учетной записи</p>
 </li>
 </ul>
+<p><img alt="Главная авторизованного пользователя" src="../main1.png" />
+<img alt="Фильтрация карточек мероприятия по району и виду активности" src="../main2.png" />
+<img alt="Фильтрация по активному отдыху и московскому району" src="../main3.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">idLogOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#logout&#39;</span><span class="p">);</span><span class="w"></span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">idLogIn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#enter&#39;</span><span class="p">);</span><span class="w"></span>
@@ -477,6 +482,8 @@
 <p>Реализованы: функция проверки авторизированный пользователь или нет, от этого меняется контент (наличие кнопки выход и тд), функция отображения карточек мероприятий, на которые записан пользователь, личный кабинет, выход из учетной записи</p>
 </li>
 </ul>
+<p><img alt="Личный кабинет и отображение карточек мероприятий, на которые записался пользователь" src="../lk1.png" /></p>
+<p><img alt="Отписались от первого мероприятия" src="../lk2.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">idLogOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#logout&#39;</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">userId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">user</span><span class="p">).</span><span class="nx">id</span><span class="p">;</span><span class="w"> </span>
